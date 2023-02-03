@@ -1,16 +1,16 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    exec.py                                            :+:      :+:    :+:    #
+#    kata00.py                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/27 19:19:02 by jdasilva          #+#    #+#              #
-#    Updated: 2023/02/03 09:45:39 by jdasilva         ###   ########.fr        #
+#    Created: 2023/02/03 15:18:01 by jdasilva          #+#    #+#              #
+#    Updated: 2023/02/03 15:52:55 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-import sys
+kata = (19,42,21)
 
-print ((' '.join(i[::-1] for i in sys.argv[:0:-1])).swapcase())
-print ((' ').join(sys.argv[1::])[::-1].swapcase())
+print(f"The 3 numbers are:{kata[0]}, {kata[1]}, {kata[2]}")
+print("The 3 numbers are:" + ", ".join(str(x) for x in kata))

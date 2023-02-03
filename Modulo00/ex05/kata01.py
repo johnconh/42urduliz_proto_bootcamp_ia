@@ -1,16 +1,20 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    exec.py                                            :+:      :+:    :+:    #
+#    kata01.py                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/27 19:19:02 by jdasilva          #+#    #+#              #
-#    Updated: 2023/02/03 09:45:39 by jdasilva         ###   ########.fr        #
+#    Created: 2023/02/03 15:53:38 by jdasilva          #+#    #+#              #
+#    Updated: 2023/02/03 15:59:17 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-import sys
+kata = {
+    'Python': 'Guido van Rossum',
+	'Ruby': 'Yukihiro Matsumoto',
+	'PHP': 'Rasmus Lerdorf',
+	}
 
-print ((' '.join(i[::-1] for i in sys.argv[:0:-1])).swapcase())
-print ((' ').join(sys.argv[1::])[::-1].swapcase())
+for key, values in kata.items():
+	print(f"{key} was created {values}")
