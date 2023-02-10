@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 16:44:01 by jdasilva          #+#    #+#              #
-#    Updated: 2023/02/03 18:13:40 by jdasilva         ###   ########.fr        #
+#    Updated: 2023/02/10 12:33:19 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,24 @@ def print_all_names(dic):
         print(key)
         
 def print_details(str, dic):
-    for key in dic:
-        if key == str:
-            print(dic[key])
-            return
+
+    if dic.get(str) == None:
+            return (print("Sorry, this option does not exist."))
+    print(
+        f"""
+Recipe for {str}:
+    Ingredients list: {dic[str]['ingredients']}
+    To be eaten for {dic[str]['meal']}.
+    Takes {dic[str]['prep_time']} minutes of cooking. 
+        """)
+#   cont = 0
+#   for name, value in dic[str].items():
+#       print(name, end = " ")
+#       if cont == 0:
+#           print(*value, sep=", ")
+#       else:
+#           print(value)
+#        cont += 1 """
         
 def delete_recipe(str, dic):
     for key in dic:
@@ -67,11 +81,36 @@ def add_recipe(dic):
         "prep_time": prep_time,
 	}
     cookbook[name] = recipe
-add_recipe(cookbook)
-#print_details("tortilla", dic)
-#print(cookbook)
-print_all_names(cookbook)
-    
-    
-                        
-                        
+    add_recipe(cookbook)
+
+def main():
+    while True:
+        print( """
+Welcome to the Python Cookbook !
+List of available option:
+    1: Add a recipe
+    2: Delete a recipe
+    3: Print a recipe
+    4: Print the cookbook
+    5: Quit
+            
+        """
+        )
+        option = input("Please select an option:\n>> ")
+                
+        if option == '1':
+            add_recipe()
+        elif option == '2':
+            delete_recipe()
+        elif option == '3':
+            recipe = input("Please enter a recipe name to get its details:\n")
+            print_details(recipe, cookbook)
+        elif option == '4':
+            print_all_names(cookbook)
+        elif option == '5':
+            break
+        else:
+            print("Sorry, this option does not exist.")
+
+if __name__=="__main__":
+    main()                
