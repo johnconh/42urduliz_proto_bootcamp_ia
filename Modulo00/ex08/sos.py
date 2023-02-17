@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/10 13:28:50 by jdasilva          #+#    #+#              #
-#    Updated: 2023/02/10 13:44:41 by jdasilva         ###   ########.fr        #
+#    Updated: 2023/02/17 10:59:48 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,18 @@ morse_code = {
 	"4": "....-", "5": ".....", "6": "-....", "7": "--...",
 	"8": "---..", "9": "----.", "0": "-----", " ": "/"
 }
+	
+if len(sys.argv) > 1:
+	text = ' '.join(sys.argv[1::])
+	for str in text:
+		if(str.isalnum() or str.isspace()) == False:
+			exit(print("Error"))	
+	for morse in text:		
+		print(f"{morse_code[morse.upper()]}", end = "")
+	print("")
+else:
+	print("ERROR")
+	
 
 
-str = sys.argv[1::]
-str2 = ' '.join(str)
-print(str2)
     
